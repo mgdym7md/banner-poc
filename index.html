@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+  <title>Video.js Markers Example</title>
+
+  <style>
+    p {
+      background-color: #eee;
+      border: thin solid #777;
+      padding: 10px;
+    }
+    ul#marker-list{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 300px;
+      margin-top: 10px;
+    }
+
+    ul#marker-list li{
+      position: relative;
+      margin-bottom: -1px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+    }
+    ul#marker-list li:last-child {
+      margin-bottom: 0;
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+    ul#marker-list li a{
+      display: block;
+      padding: 10px 15px;
+      color: #555;
+      text-decoration: none;
+    }
+    ul#marker-list li a:hover {
+      color: #555;
+      text-decoration: none;
+      background-color: #f5f5f5;
+    }
+  </style>
+  <link href="/dist/video-js.css" rel="stylesheet">
+  <link href="/dist/videojs.markers.css" rel="stylesheet">
+
+</head>
+<body>
+
+<p>This is a POC of banner-markers on mehwar road</p>
+
+<video id="test_video" no-controls autoplay="autoplay" muted preload="none" class="video-js vjs-default-skin" width="470px" height="264">
+  <source src="/clip-output.mp4" type="video/mp4">
+</video>
+
+<ul id='marker-list'>
+
+</ul>
+
+</body>
+<script src="/dist/jquery-2.0.3.min.js"></script>
+<script src="/dist/video.js"></script>
+<script src='/dist/videojs-markers.js'></script>
+
+<script>
+  // initialize video.js
+  var player = videojs('test_video');
+
+  var markers = [
+    {
+      time: 0.7,
+      text: "1st banner",
+      duration: 1,
+      style: {
+        'background-color': '#00000059',
+        'width' : '100px',
+        'height' : '100px',
+        'position' : 'absolute',
+        'top' : '60px',
+        'right' : '0px',
+      }
+    },
+    {
+      time: 3.5,
+      text: "2nd banner",
+      duration: 0.5,
+      style: {
+        'background-color': '#00000059',
+        'width' : '150px',
+        'height' : '100px',
+        'position' : 'absolute',
+        'top' : '30px',
+        'right' : '0px',
+      }
+    },
+    {
+      time: 9.6,
+      text: "3rd banner",
+      duration: 0.5,
+      style: {
+        'background-color': '#00000059',
+        'width' : '100px',
+        'height' : '100px',
+        'position' : 'absolute',
+        'top' : '30px',
+        'right' : '0px',
+      }
+    },
+    {
+      time: 16,
+      text: "4th banner",
+      duration: 0.5,
+      style: {
+        'background-color': '#00000059',
+        'width' : '100px',
+        'height' : '100px',
+        'position' : 'absolute',
+        'top' : '30px',
+        'right' : '0px',
+      }
+    },
+    {
+      time: 21,
+      text: "5th banner",
+      duration: 0.5,
+      style: {
+        'background-color': '#00000059',
+        'width' : '100px',
+        'height' : '100px',
+        'position' : 'absolute',
+        'top' : '30px',
+        'right' : '0px',
+      }
+    }
+  ];
+
+  //load the marker plugin
+  player.markers({
+    markerTip:{
+      display: true,
+      text: function(marker){
+        return marker.text;
+      }
+    },
+    breakOverlay:{
+      display: true,
+      displayTime: 1,
+      style: {
+        'background-color': '#00000059',
+        'width' : '150px',
+        'height' : '50px',
+        'position' : 'absolute',
+        'top' : '60px',
+        'right' : '40px',
+      },
+      text: function(marker) {
+        return "This is " + marker.text;
+      }
+    },
+    onMarkerReached: function(marker) {
+      console.log(marker);
+    },
+    markers: markers
+  });
+
+  $(document).ready(function(){
+    // insert marker list
+    for(var i =0; i < markers.length; i++){
+      var item = $("<li data-index='"+i+"'><a href='#'>"+markers[i].text+"</a></li>");
+      $("#marker-list").append(item);
+    }
+
+    // set up click event
+    $("#marker-list li").click(function(){
+      var index = $(this).data("index");
+
+      player.currentTime(markers[index].time);
+    });
+
+  });
+
+
+</script>
+</html>
