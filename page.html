@@ -36,11 +36,48 @@
     <!-- template responsive css stylesheet -->
     <link rel="stylesheet" href="assets/css/responsive.css">
 
+    <style>
+        ul#marker-list{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 300px;
+            margin-top: 10px;
+        }
+
+        ul#marker-list li{
+            position: relative;
+            margin-bottom: -1px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+        ul#marker-list li:last-child {
+            margin-bottom: 0;
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+        ul#marker-list li a{
+            display: block;
+            padding: 10px 15px;
+            color: #555;
+            text-decoration: none;
+        }
+        ul#marker-list li a:hover {
+            color: #555;
+            text-decoration: none;
+            background-color: #f5f5f5;
+        }
+    </style>
+    <link href="/banner-poc/dist/video-js.css" rel="stylesheet">
+    <link href="/banner-poc/dist/videojs.markers.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="/banner-poc/dist/jquery-2.0.3.min.js"></script>
+    <script src="/banner-poc/dist/video.js"></script>
+    <script src='/banner-poc/dist/videojs-markers.js'></script>
     <![endif]-->
 </head>
 
@@ -131,30 +168,30 @@
     <!-- header section end -->
 
     <!-- breadcrumb section start -->
-    <section class="banner-section bg-cover bg-overlay" style="background-image: url('assets/img/breadcrumb_bg.jpg')">
-        <div class="container">
+    <section class="banner-section bg-cover bg-overlay h-25 d-flex flex-row" style="background-image: url('assets/img/banner.jpg');background-position: bottom;">
+        <div class="container m-auto">
             <div class="row">
                 <div class="col-lg-6 col-sm-12">
                     <div class="banner-left-content d-flex align-items-center">
                         <div class="banner-icon">
-                            <img src="assets/img/exterior.png" alt="">
+                            <img src="assets/img/road.png" alt="">
                         </div>
                         <div class="banner-content">
-                            <h3>Apricot West Britford Arch</h3>
-                            <span><i class="fas fa-home"></i>Madical</span>
-                            <span><i class="fas fa-phone"></i>+49 73526 1235</span>
-                            <span><i class="fas fa-map"></i>1546 77th St, Flushing, NY</span>
+                            <h3>26th of July Corridor</h3>
+                            <span><i class="fas fa-home"></i>Road</span>
+<!--                            <span><i class="fas fa-phone"></i>+49 73526 1235</span>-->
+                            <span><i class="fas fa-map"></i>Cairo, EG</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-5 offset-lg-1 col-sm-12 text-lg-right">
                     <div class="banner-left-content">
                         <div class="all-reviews">
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span>
+                            <span><i class="fas fa-star" style="color: #fff;"></i></span>
+                            <span><i class="fas fa-star" style="color: #fff;"></i></span>
+                            <span><i class="fas fa-star" style="color: #fff;"></i></span>
+                            <span><i class="fas fa-star" style="color: #fff;"></i></span>
+                            <span><i class="fas fa-star" style="color: #fff;"></i></span>
                             Excellent, (3 Reviwer)
                         </div>
                         <div class="feedback-option">
@@ -181,11 +218,11 @@
                        <div class="collapse navbar-collapse justify-content-start" id="detailsnav">
                           <ul class="navbar-nav">
                             <a href="#des-box">Description</a>
-                            <a href="#photo-box">Photos</a>
+<!--                            <a href="#photo-box">Photos</a>-->
                             <a href="#map-box">Maps</a>
                             <a href="#video-box">Video</a>
-                            <a href="#menu-price">Menu Prices</a>
-                            <a href="#review-box">Reviews</a>
+<!--                            <a href="#menu-price">Menu Prices</a>-->
+<!--                            <a href="#review-box">Reviews</a>-->
                           </ul>
                        </div>
                     </nav>
@@ -209,151 +246,162 @@
     <section class="single-details-box-section section-padding page-bg">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-sm-12">
+                <div class="col-lg-12 col-sm-12">
                     <div class="single-content-box-area">
                         <div class="description_box box" id="des-box">
                             <h3>Description</h3>
                             <p>ommodo consequat. Duis aute irure dolor in reprehenderit in ptate velit se cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quas molestias. 
                             numquam magnam dolorum consequatur, omnis eius. Iste nam dolore vero suscipit atque tempora a libero, consequuntur, aperiam odit dicta!</p>
+                            <ul id='marker-list'>
+
+                            </ul>
                         </div>
-                        <div class="photos_box box" id="photo-box">
-                            <h3>Photos</h3>
-                            <div class="photo-gallery">
-                                <div class="single-g-slide">
-                                    <img src="assets/img/gallery/gallery1.jpg" alt="">
-                                </div>
-                                <div class="single-g-slide">
-                                    <img src="assets/img/gallery/gallery2.jpg" alt="">
-                                </div>
-                                <div class="single-g-slide">
-                                    <img src="assets/img/gallery/gallery3.jpg" alt="">
-                                </div>
-                                <div class="single-g-slide">
-                                    <img src="assets/img/gallery/gallery4.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="gallery_nav">
-                                <div class="single-gallery-img">
-                                    <img src="assets/img/gallery/gn1.jpg" alt="">
-                                </div>
-                                <div class="single-gallery-img">
-                                    <img src="assets/img/gallery/gn2.jpg" alt="">
-                                </div>
-                                <div class="single-gallery-img">
-                                    <img src="assets/img/gallery/gn3.jpg" alt="">
-                                </div>
-                                <div class="single-gallery-img">
-                                    <img src="assets/img/gallery/gn4.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="map_box box" id="map-box">
-                            <h3>Lacation</h3>
-                            <div class="map-wrap">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d58400.47931449054!2d90.40927917566997!3d23.817533751206252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBars!5e0!3m2!1sen!2sbd!4v1562019287484!5m2!1sen!2sbd"  style="border:0" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="video_box box" id="video-box">
-                            <h3>Video</h3>
-                            <div class="video-wrap">
-                                <iframe src="https://www.youtube.com/embed/uXyy7lgDj9k" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="menu_price box" id="menu-price">
-                            <h3>Menu Price</h3>
-                            <div class="menu-item-price">
-                                <ul>
-                                    <li>Beautiful City Hostel & Hotel <span>$80</span></li>
-                                    <li>Children World of Adventures <span>$60</span></li>
-                                    <li>Restaurant De La Marne <span>$40</span></li>
-                                    <li>Beautiful City Hostel & Hotel <span>$80</span></li>
-                                    <li>Children World of Adventures <span>$60</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="review_comment_box" id="review-box">
-                            <form action="#" class="row">
-                                <div class="col-lg-6 col-12">
-                                    <div class="review_box">
-                                        <h3>Reviews</h3>
-                                        <ul>
-                                            <li>
-                                                <div class="rating"></div>
-                                                Excellent
-                                            </li>
-                                            <li>
-                                                <div class="rating"></div>
-                                                average
-                                            </li>
-                                            <li>
-                                                <div class="rating"></div>
-                                                low
-                                            </li>
-                                            <li>
-                                                <div class="rating"></div>
-                                                poor
-                                            </li>
-                                            <li>
-                                                <div class="rating"></div>
-                                                sad
-                                            </li>
-                                        </ul>
-                                        <input type="checkbox"> I agree to your policy
+<!--                        <div class="photos_box box" id="photo-box">-->
+<!--                            <h3>Photos</h3>-->
+<!--                            <div class="photo-gallery">-->
+<!--                                <div class="single-g-slide">-->
+<!--                                    <img src="assets/img/gallery/gallery1.jpg" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="single-g-slide">-->
+<!--                                    <img src="assets/img/gallery/gallery2.jpg" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="single-g-slide">-->
+<!--                                    <img src="assets/img/gallery/gallery3.jpg" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="single-g-slide">-->
+<!--                                    <img src="assets/img/gallery/gallery4.jpg" alt="">-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="gallery_nav">-->
+<!--                                <div class="single-gallery-img">-->
+<!--                                    <img src="assets/img/gallery/gn1.jpg" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="single-gallery-img">-->
+<!--                                    <img src="assets/img/gallery/gn2.jpg" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="single-gallery-img">-->
+<!--                                    <img src="assets/img/gallery/gn3.jpg" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="single-gallery-img">-->
+<!--                                    <img src="assets/img/gallery/gn4.jpg" alt="">-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-12">
+                                <div class="map_box box" id="map-box">
+                                    <h3>Lacation</h3>
+                                    <div class="map-wrap">
+                                        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1nQrZlHgErDOU--4pty_IN1MgTSTm9vg&ehbc=2E312F"  style="border:0" allowfullscreen></iframe>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-12">
-                                    <div class="comment_box">
-                                        <h3>Reviews</h3>
-                                        <input type="text" placeholder="name*">
-                                        <input type="text" placeholder="email*">
-                                        <textarea name="message" placeholder="message"></textarea>
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                                <div class="video_box box" id="video-box">
+                                    <h3>Video</h3>
+                                    <div class="video-wrap">
+                                        <video id="test_video" no-controls autoplay="autoplay" muted preload="none" class="video-js vjs-default-skin" width="495px" height="358">
+                                            <source src="/banner-poc/clip-output.mp4" type="video/mp4">
+                                        </video>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <button class="btn-submit" type="submit">Submit Reviews</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-12">
-                    <div class="single-sidebar-widgets">
-                        <div class="single-widgets widgets box">
-                            <h3>Listing Amenities</h3>
-                            <ul>
-                                <li><a href="#">Accepts Credit Cards</a></li>
-                                <li><a href="#">Bike Parking</a></li>
-                                <li><a href="#">Coupons</a></li>
-                                <li><a href="#">Outdoor Seating</a></li>
-                                <li><a href="#">Reservations</a></li>
-                                <li><a href="#">Outdoor</a></li>
-                            </ul>
-                        </div><!-- single widget end -->
-                        <div class="single-widgets widgets box market-time">
-                            <h3>Today Open</h3>
-                            <ul>
-                                <li>Monday <span>03:00 - 22:00</span></li>
-                                <li>Tuesday <span>03:00 - 22:00</span></li>
-                                <li>Wednesday <span>03:00 - 22:00</span></li>
-                                <li>Thursday <span>03:00 - 22:00</span></li>
-                                <li>Friday <span>03:00 - 22:00</span></li>
-                                <li>Saturday <span>hap day</span></li>
-                                <li>sunday <span>Hollidays</span></li>
-                            </ul>
-                        </div><!-- single widget end -->
-                        <div class="single-widgets widgets box">
-                            <h3>Business Info</h3>
-                            <div class="g-map">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d116765.49789143789!2d90.28748999112247!3d23.85691014031508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sHotels!5e0!3m2!1sen!2sbd!4v1562018865814!5m2!1sen!2sbd"  style="border:0" allowfullscreen></iframe>
                             </div>
-                            <ul>
-                                <li><i class="far fa-map"></i>1546 77th St, Flushing, NY</li>
-                                <li><i class="far fa-envelope"></i>listing-business@gmail.com</li>
-                                <li><i class="fas fa-phone"></i>+49 73526 1235</li>
-                            </ul>
-                        </div><!-- single widget end -->
+                        </div>
+<!--                        <div class="menu_price box" id="menu-price">-->
+<!--                            <h3>Menu Price</h3>-->
+<!--                            <div class="menu-item-price">-->
+<!--                                <ul>-->
+<!--                                    <li>Beautiful City Hostel & Hotel <span>$80</span></li>-->
+<!--                                    <li>Children World of Adventures <span>$60</span></li>-->
+<!--                                    <li>Restaurant De La Marne <span>$40</span></li>-->
+<!--                                    <li>Beautiful City Hostel & Hotel <span>$80</span></li>-->
+<!--                                    <li>Children World of Adventures <span>$60</span></li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="review_comment_box" id="review-box">-->
+<!--                            <form action="#" class="row">-->
+<!--                                <div class="col-lg-6 col-12">-->
+<!--                                    <div class="review_box">-->
+<!--                                        <h3>Reviews</h3>-->
+<!--                                        <ul>-->
+<!--                                            <li>-->
+<!--                                                <div class="rating"></div>-->
+<!--                                                Excellent-->
+<!--                                            </li>-->
+<!--                                            <li>-->
+<!--                                                <div class="rating"></div>-->
+<!--                                                average-->
+<!--                                            </li>-->
+<!--                                            <li>-->
+<!--                                                <div class="rating"></div>-->
+<!--                                                low-->
+<!--                                            </li>-->
+<!--                                            <li>-->
+<!--                                                <div class="rating"></div>-->
+<!--                                                poor-->
+<!--                                            </li>-->
+<!--                                            <li>-->
+<!--                                                <div class="rating"></div>-->
+<!--                                                sad-->
+<!--                                            </li>-->
+<!--                                        </ul>-->
+<!--                                        <input type="checkbox"> I agree to your policy-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-lg-6 col-12">-->
+<!--                                    <div class="comment_box">-->
+<!--                                        <h3>Reviews</h3>-->
+<!--                                        <input type="text" placeholder="name*">-->
+<!--                                        <input type="text" placeholder="email*">-->
+<!--                                        <textarea name="message" placeholder="message"></textarea>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-12">-->
+<!--                                    <button class="btn-submit" type="submit">Submit Reviews</button>-->
+<!--                                </div>-->
+<!--                            </form>-->
+<!--                        </div>-->
                     </div>
                 </div>
+<!--                <div class="col-lg-4 col-sm-12">-->
+<!--                    <div class="single-sidebar-widgets">-->
+<!--                        <div class="single-widgets widgets box">-->
+<!--                            <h3>Listing Amenities</h3>-->
+<!--                            <ul>-->
+<!--                                <li><a href="#">Accepts Credit Cards</a></li>-->
+<!--                                <li><a href="#">Bike Parking</a></li>-->
+<!--                                <li><a href="#">Coupons</a></li>-->
+<!--                                <li><a href="#">Outdoor Seating</a></li>-->
+<!--                                <li><a href="#">Reservations</a></li>-->
+<!--                                <li><a href="#">Outdoor</a></li>-->
+<!--                            </ul>-->
+<!--                        </div>&lt;!&ndash; single widget end &ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="single-widgets widgets box market-time">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <h3>Today Open</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <ul>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <li>Monday <span>03:00 - 22:00</span></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <li>Tuesday <span>03:00 - 22:00</span></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <li>Wednesday <span>03:00 - 22:00</span></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <li>Thursday <span>03:00 - 22:00</span></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <li>Friday <span>03:00 - 22:00</span></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <li>Saturday <span>hap day</span></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <li>sunday <span>Hollidays</span></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&lt;!&ndash; single widget end &ndash;&gt;&ndash;&gt;-->
+<!--                        <div class="single-widgets widgets box">-->
+<!--                            <h3>Business Info</h3>-->
+<!--                            <div class="g-map">-->
+<!--                                <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d116765.49789143789!2d90.28748999112247!3d23.85691014031508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sHotels!5e0!3m2!1sen!2sbd!4v1562018865814!5m2!1sen!2sbd"  style="border:0" allowfullscreen></iframe>-->
+<!--                            </div>-->
+<!--                            <ul>-->
+<!--                                <li><i class="far fa-map"></i>1546 77th St, Flushing, NY</li>-->
+<!--                                <li><i class="far fa-envelope"></i>listing-business@gmail.com</li>-->
+<!--                                <li><i class="fas fa-phone"></i>+49 73526 1235</li>-->
+<!--                            </ul>-->
+<!--                        </div>&lt;!&ndash; single widget end &ndash;&gt;-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
     </section>
@@ -477,5 +525,125 @@
     <script src="assets/js/ion.rangeSlider.min.js"></script>
     <script src="assets/js/meanmenu.min.js"></script>    
     <script src="assets/js/main.js"></script>
+
+    <script>
+        // initialize video.js
+        var player = videojs('test_video');
+
+        var markers = [
+            {
+                time: 0.7,
+                text: "1st banner",
+                duration: 1,
+                style: {
+                    'background-color': '#00000059',
+                    'width' : '100px',
+                    'height' : '100px',
+                    'position' : 'absolute',
+                    'top' : '60px',
+                    'right' : '0px',
+                }
+            },
+            {
+                time: 3.5,
+                text: "2nd banner",
+                duration: 0.5,
+                style: {
+                    'background-color': '#00000059',
+                    'width' : '150px',
+                    'height' : '100px',
+                    'position' : 'absolute',
+                    'top' : '30px',
+                    'right' : '0px',
+                }
+            },
+            {
+                time: 9.6,
+                text: "3rd banner",
+                duration: 0.5,
+                style: {
+                    'background-color': '#00000059',
+                    'width' : '100px',
+                    'height' : '100px',
+                    'position' : 'absolute',
+                    'top' : '30px',
+                    'right' : '0px',
+                }
+            },
+            {
+                time: 16,
+                text: "4th banner",
+                duration: 0.5,
+                style: {
+                    'background-color': '#00000059',
+                    'width' : '100px',
+                    'height' : '100px',
+                    'position' : 'absolute',
+                    'top' : '30px',
+                    'right' : '0px',
+                }
+            },
+            {
+                time: 21,
+                text: "5th banner",
+                duration: 0.5,
+                style: {
+                    'background-color': '#00000059',
+                    'width' : '100px',
+                    'height' : '100px',
+                    'position' : 'absolute',
+                    'top' : '30px',
+                    'right' : '0px',
+                }
+            }
+        ];
+
+        //load the marker plugin
+        player.markers({
+            markerTip:{
+                display: true,
+                text: function(marker){
+                    return marker.text;
+                }
+            },
+            breakOverlay:{
+                display: true,
+                displayTime: 1,
+                style: {
+                    'background-color': '#00000059',
+                    'width' : '150px',
+                    'height' : '50px',
+                    'position' : 'absolute',
+                    'top' : '60px',
+                    'right' : '40px',
+                },
+                text: function(marker) {
+                    return "This is " + marker.text;
+                }
+            },
+            onMarkerReached: function(marker) {
+                console.log(marker);
+            },
+            markers: markers
+        });
+
+        $(document).ready(function(){
+            // insert marker list
+            for(var i =0; i < markers.length; i++){
+                var item = $("<li data-index='"+i+"'><a href='#'>"+markers[i].text+"</a></li>");
+                $("#marker-list").append(item);
+            }
+
+            // set up click event
+            $("#marker-list li").click(function(){
+                var index = $(this).data("index");
+
+                player.currentTime(markers[index].time);
+            });
+
+        });
+
+
+    </script>
 </body>
 </html>
